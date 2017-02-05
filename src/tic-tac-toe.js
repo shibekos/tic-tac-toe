@@ -1,6 +1,6 @@
 class TicTacToe {
     constructor() {
-        this.namePlayer = 1
+        this.namePlayer = 1;
         this.field = [
         [null,null,null],
         [null,null,null],
@@ -18,7 +18,15 @@ class TicTacToe {
     }
 
     nextTurn(rowIndex, columnIndex) {
-       
+        if (!this.Board[rowIndex][columnIndex]){
+            if(this.CurrentSymbol === 'x'){
+                this.Board[rowIndex][columnIndex] = 'x';
+                this.CurrentSymbol = 'o'; 
+            } else {
+                this.Board[rowIndex][columnIndex] = 'o';
+                this.CurrentSymbol = 'x';
+            }
+        }
     }
 
     isFinished() {
