@@ -19,12 +19,12 @@ class TicTacToe {
 
     nextTurn(rowIndex, columnIndex) {
       if (this.field[rowIndex][columnIndex] == null){
-        if (this.player == 1){
+        if (this.namePlayer == 1){
           this.field[rowIndex][columnIndex] = 'x'
-          this.player = 2
+          this.namePlayer = 2
         }else{
           this.field[rowIndex][columnIndex] = 'o'
-          this.player = 1
+          this.namePlayer = 1
         }
       }
     }
