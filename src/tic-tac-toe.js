@@ -5,7 +5,7 @@ class TicTacToe {
         [null,null,null],
         [null,null,null],
         [null,null,null]
-        ]
+        ];
     }
 
     getCurrentPlayerSymbol() {
@@ -32,7 +32,7 @@ class TicTacToe {
     isFinished() {
       if((this.getWinner() !== null) || (this.isDraw() == true)){
         return true
-      }else{
+      } else {
         return false
       }
     }
