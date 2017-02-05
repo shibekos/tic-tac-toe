@@ -9,7 +9,7 @@ class TicTacToe {
     }
 
     getCurrentPlayerSymbol() {
-        if (this.namePlayer === 1) {
+        if (this.namePlayer == 1) {
             return "x" {
         } else {
             return "o"
@@ -30,7 +30,7 @@ class TicTacToe {
     }
 
     isFinished() {
-      if((this.getWinner() !==null) || (this.isDraw() == true)){
+      if((this.getWinner() !== null) || (this.isDraw() == true)){
         return true
       }else{
         return false
