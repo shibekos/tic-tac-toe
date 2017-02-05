@@ -1,56 +1,54 @@
 class TicTacToe {
     constructor() {
         this.namePlayer = 1;
-        this.field = [
-        [null,null,null],
-        [null,null,null],
-        [null,null,null]
-        ];
+        this.field = [[null],[null],[null]];
+        this.gameChampinion = null;
+        this.gamePoint = 0;
     }
 
     getCurrentPlayerSymbol() {
-        if (this.namePlayer == 1) {
-            return "x" {
-        } else {
-            return "o"
-        }
-      }
+       return this.namePlayer;
     }
 
-    nextTurn(rowIndex, columnIndex) {
-      if (this.field[rowIndex][columnIndex] == null){
-        if (this.namePlayer == 1){
-          this.field[rowIndex][columnIndex] = 'x'
-          this.namePlayer = 2
-        }else{
-          this.field[rowIndex][columnIndex] = 'o'
-          this.namePlayer = 1
+     nextTurn(rowIndex, columnIndex) {
+        if (this.field[rowIndex][columnIndex] != null) {
+            return;
         }
-      }
+        this.action++;
+
+        if ( (this.field[0][0] && this.field[0][0] === this.field[1][0] && this.field[0][0] === this.field[2][0]) ||
+            (this.field[0][1] && this.field[0][1] === this.field[1][1] && this.field[0][1] === this.field[2][1]) ||
+            (this.field[0][2] && this.field[0][2] === this.field[1][2] && this.field[0][2] === this.field[2][2]) ||
+            (this.field[0][0] && this.field[0][0] === this.field[0][1] && this.field[0][0] === this.field[0][2]) ||
+            (this.field[1][0] && this.field[1][0] === this.field[1][1] && this.field[1][0] === this.field[1][2]) ||
+            (this.field[2][0] && this.field[2][0] === this.field[2][1] && this.field[2][0] === this.field[2][2]) ||
+            (this.field[0][0] && this.field[0][0] === this.field[1][1] && this.field[0][0] === this.field[2][2]) ||
+            (this.field[0][2] && this.field[0][2] === this.field[1][1] && this.field[0][2] === this.field[2][0]) )
+
+        { this.gameChampinion = this.namePlayer; }
+
+        this.namePlayer = (this.namePlayer == 'x') ? 'o' : 'x';
     }
 
     isFinished() {
-      if((this.getWinner() !== null) || (this.isDraw() == true)){
-        return true
-      } else {
-        return false
-      }
+        return (this.noMoreTurns() === true || this.getWinner() != null) ?  true :  false;
     }
 
     getWinner() {
-
+        return (this.gameChampinion == null) ? null : this.gameChampinion;
     }
 
     noMoreTurns() {
 
+        return (this.gamePoint == 9) ? true : false;
     }
 
     isDraw() {
-
+      
     }
 
     getFieldValue(rowIndex, colIndex) {
-
+        return this.field;
     }
 }
 
